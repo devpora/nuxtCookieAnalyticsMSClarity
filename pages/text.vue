@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {sendEventToAnalytics} from "~/utils/analytics";
+
 const cookieAnalytics = useCookie('cookieAnalytics')
 
 const text = ref(null)
@@ -7,9 +8,9 @@ const textSecond = ref(null)
 const data = ref(null)
 const toast = useToast()
 
-function showToast(){
+function showToast() {
   data.value = text.value ? text.value : 'Test input'
-  toast.add({ title: data.value })
+  toast.add({title: data.value})
 
   // Send data to Analytics
   if (cookieAnalytics.value === true) {
@@ -20,8 +21,9 @@ function showToast(){
     });
   }
 }
-function showSecondToast(){
-  toast.add({ title: textSecond.value, color: 'amber' })
+
+function showSecondToast() {
+  toast.add({title: textSecond.value, color: 'amber'})
 
   // Send data to Analytics
   if (cookieAnalytics.value === true) {
@@ -32,6 +34,7 @@ function showSecondToast(){
     });
   }
 }
+
 useSeoMeta({
   titleTemplate: 'Text',
   title: 'Nuxt3 | Test Text Input for MS Clarity and Analytics',
@@ -48,8 +51,9 @@ useSeoMeta({
           :title="data ? data : 'My test Text'"
           :description="`You can open the Developer tools and Network tab to check if the cookie and analytics are working correctly. Cookie for Analytics is ${cookieAnalytics ? 'enabled' : 'disabled'}. Sending data is ${cookieAnalytics ? 'allowed' : 'blocked'}`"
       >
-        <UInput v-model="text" type="text" placeholder="Enter text and press enter" @keyup.enter="showToast"/>
-        <UInput v-model="textSecond" type="password" placeholder="Enter text and press enter" @keyup.enter="showSecondToast"/>
+        <UInput v-model="text" type="text" size="xl" placeholder="Enter text and press enter" @keyup.enter="showToast"/>
+        <UInput v-model="textSecond" type="password" size="xl" placeholder="Enter text and press enter"
+                @keyup.enter="showSecondToast"/>
       </ULandingHero>
     </UPageBody>
   </UPage>

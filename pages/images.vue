@@ -35,7 +35,7 @@ useSeoMeta({
 </script>
 <template>
   <UPage>
-    <div class="grid grid-cols-3 gap-12">
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-12">
       <div
           v-for="(image, index) in items"
           :key="index"
@@ -47,7 +47,8 @@ useSeoMeta({
         >
           <img
               :src="image"
-              class="w-full rounded-md px-12 "
+              alt="Image"
+              class="w-full rounded-md px-2 lg:px-12 "
               @click="openModal(image)"
           />
         </ULandingCard>
@@ -58,6 +59,7 @@ useSeoMeta({
       <div>
         <img
             :src="currentImage"
+            alt="Image"
             class="w-full rounded-md"
             @click="closeModal()"
         />

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {defineEmits} from "vue";
+
 const emit = defineEmits(['openCookie']);
 const links = [{
   label: 'Cookie',
@@ -25,11 +26,13 @@ const links = [{
     </template>
 
     <template #right>
-      <UButton to="https://ui.nuxt.com/pro?aff=Ge5Bd" target="_blank" label="NuxtUI" size="xl" color="lime" variant="ghost"  class="animate-bounce"/>
-      <UColorModeButton/>
-      <UButton to="https://github.com/devpora/nuxtCookieAnalyticsMSClarity" target="_blank" icon="i-simple-icons-github" color="lime" variant="ghost" />
+      <UButton to="https://ui.nuxt.com/pro?aff=Ge5Bd" target="_blank" label="NuxtUI" size="xl" color="lime"
+               variant="ghost" class="animate-bounce"/>
+      <UColorModeButton class="hidden lg:flex"/>
+      <UButton to="https://github.com/devpora/nuxtCookieAnalyticsMSClarity" target="_blank" icon="i-simple-icons-github"
+               color="lime" variant="ghost" class="hidden lg:flex"/>
       <UTooltip
-          text="Dev Pora"
+          text="Dev Pora" class="hidden lg:flex"
       >
         <UAvatar
             src="/images/avatar.png"
@@ -41,8 +44,16 @@ const links = [{
     <template #panel>
       <div class="flex justify-end gap-4">
         <UColorModeButton/>
+        <UButton to="https://github.com/devpora/nuxtCookieAnalyticsMSClarity" target="_blank"
+                 icon="i-simple-icons-github"
+                 color="lime" variant="ghost"/>
+        <UAvatar
+            src="/images/avatar.png"
+            alt="Avatar"
+        />
       </div>
       <UDivider class="my-6"/>
+      <UAsideLinks :links="links"/>
     </template>
 
   </UHeader>

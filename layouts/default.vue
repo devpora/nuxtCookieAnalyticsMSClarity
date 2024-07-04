@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const showCookie = ref(false)
-function openCookie (){
+
+function openCookie() {
   showCookie.value = true
   nextTick(() => {
     showCookie.value = false;
@@ -11,8 +12,9 @@ function openCookie (){
   <div>
     <OrganismsHeader @openCookie="openCookie()"/>
     <UContainer>
-      <slot />
+      <slot/>
     </UContainer>
     <OrganismsCookie :showCookie="showCookie"/>
+    <OrganismsFooter/>
   </div>
 </template>
