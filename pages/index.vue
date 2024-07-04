@@ -10,7 +10,7 @@ useSeoMeta({
 </script>
 <template>
   <UPage>
-    <UPageBody class="relative flex flex-col justify-center overflow-hidden" style="height: calc(100vh - 128px);">
+    <UPageBody class="relative flex flex-col justify-center" style="min-height: calc(100vh - 120px);">
       <ULandingCTA
           title="Enhance Your Nuxt Projects with Cookies, Analytics, and Clarity"
           card
